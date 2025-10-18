@@ -1,0 +1,2 @@
+# syntax-protocol
+Joomla Template
