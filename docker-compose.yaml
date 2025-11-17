@@ -1,22 +1,22 @@
-version: '3.8'
 services:
   syntax-protocol:
     image: joomla:latest
+    restart: always
     ports:
-      - "8080:80"
+      - 8000:80
     volumes:
       # This line is key! It maps your local folder to the container's template folder.
-      - ./syntax-protocol:/var/www/html/templates/syntax-protocol
+      # - ./syntax-protocol:/var/www/html/templates/syntax-protocol
       # Optional: Map the entire Joomla install for quick updates/debugging
       - ./joomla_files:/var/www/html
     environment:
       - JOOMLA_DB_HOST=syntax-protocol-db
-      - JOOMLA_DB_PASSWORD=password
-   syntax-protocol-db:
+      - JOOMLA_DB_PASSWORD=password    
+  syntax-protocol-db:
     image: mysql:latest
     restart: always
     ports:
-      - 3306:3306
+      - 3300:3306
     environment:
       - MYSQL_ROOT_PASSWORD=password
     volumes:
